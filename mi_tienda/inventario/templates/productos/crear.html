@@ -1,0 +1,16 @@
+<!-- inventario/templates/productos/crear.html -->
+{% extends 'base.html' %}
+
+{% block title %}Crear Producto{% endblock %}
+
+{% block content %}
+<h1>Crear Producto</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Guardar</button>
+</form>
+
+<a href="{% url 'lista_productos' %}" class="btn btn-secondary mt-3">Volver a la lista</a>
+{% endblock %}

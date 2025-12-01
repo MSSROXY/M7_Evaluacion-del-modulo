@@ -1,0 +1,36 @@
+<!-- inventario/templates/etiquetas/lista.html -->
+{% extends 'base.html' %}
+
+{% block title %}Etiquetas{% endblock %}
+
+{% block content %}
+<h1>Lista de Etiquetas</h1>
+
+<a href="{% url 'crear_etiqueta' %}" class="btn btn-primary mb-3">Crear Nueva Etiqueta</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for etiqueta in etiquetas %}
+        <tr>
+            <td>{{ etiqueta.id }}</td>
+            <td>{{ etiqueta.nombre }}</td>
+            <td>
+                <a href="{% url 'editar_etiqueta' etiqueta.id %}" class="btn btn-sm btn-warning">Editar</a>
+                <a href="{% url 'eliminar_etiqueta' etiqueta.id %}" class="btn btn-sm btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">No hay etiquetas registradas.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

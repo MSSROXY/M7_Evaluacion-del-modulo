@@ -1,0 +1,15 @@
+<!-- inventario/templates/registration/login.html -->
+{% extends "base.html" %}
+
+{% block title %}Login - Mi Tienda{% endblock %}
+
+{% block content %}
+<div class="container mt-5" style="max-width: 400px;">
+    <h2 class="mb-4">Iniciar Sesión</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary w-100">Entrar</button>
+    </form>
+</div>
+{% endblock %}

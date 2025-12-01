@@ -1,0 +1,15 @@
+<!-- inventario/templates/categorias/formulario.html -->
+{% extends 'base.html' %}
+
+{% block title %}{{ accion }} Categoría{% endblock %}
+
+{% block content %}
+<h1>{{ accion }} Categoría</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">{{ accion }}</button>
+    <a href="{% url 'lista_categorias' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}
